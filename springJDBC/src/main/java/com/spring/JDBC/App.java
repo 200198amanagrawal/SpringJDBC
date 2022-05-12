@@ -15,8 +15,8 @@ public class App
         System.out.println( "Hello World!" );
         ApplicationContext context=new ClassPathXmlApplicationContext("com/spring/JDBC/config.xml");
         JdbcTemplate template=context.getBean("jdbcTemplate",JdbcTemplate.class);
-        String query="Insert into student(sname,sphone,scity) values (?,?,?)";
-       int result= template.update(query,"spring1","2233992","AHDH");
-       System.out.println("number of records inserted....."+result);
+        String query="Update student set sname=? where sid=?";
+       int result= template.update(query,"spring5",5);
+       System.out.println("number of records udpated....."+result);
     }
 }
