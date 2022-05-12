@@ -1,4 +1,4 @@
-package com.spring.JDBC;
+package com.spring.JDBC.entities;
 
 public class Student {
 	private int sid;
