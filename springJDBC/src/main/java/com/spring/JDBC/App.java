@@ -4,6 +4,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import com.spring.JDBC.entities.Student;
+
 /**
  * Hello world!
  *
@@ -15,8 +17,9 @@ public class App
         System.out.println( "Hello World!" );
         ApplicationContext context=new ClassPathXmlApplicationContext("com/spring/JDBC/config.xml");
         JdbcTemplate template=context.getBean("jdbcTemplate",JdbcTemplate.class);
-        String query="Insert into student(sname,sphone,scity) values (?,?,?)";
-       int result= template.update(query,"spring1","2233992","AHDH");
-       System.out.println("number of records inserted....."+result);
+        String query="Select * from student where sid=?";
+        //rowmapperimpl mapRow method returns an object of student type and that will be used as a single output
+       Student student= template.queryForObject(query,new RowMapperImpl(),1);
+       System.out.println(student);
     }
 }

@@ -1,6 +1,13 @@
 package com.spring.JDBC.entities;
 
 public class Student {
+	public Student(int sid, String sphone, String sname, String scity) {
+		super();
+		this.sid = sid;
+		this.sphone = sphone;
+		this.sname = sname;
+		this.scity = scity;
+	}
 	private int sid;
 	public Student() {
 		super();
